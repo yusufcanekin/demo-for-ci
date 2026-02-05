@@ -21,7 +21,8 @@ public class ContinuousIntegrationServer extends AbstractHandler
                        HttpServletRequest request,
                        HttpServletResponse response) 
         throws IOException, ServletException
-    {
+    {   
+        /** 
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);
@@ -33,8 +34,18 @@ public class ContinuousIntegrationServer extends AbstractHandler
         // for example
         // 1st clone your repository
         // 2nd compile the code
+        */
+        // Use System.err for high-priority debugging (it bypasses most buffers)
+        System.err.println("\n!!! INCOMING REQUEST !!!");
+        System.err.println("Path: " + target);
+        System.err.println("Method: " + request.getMethod());
 
+        response.setContentType("text/html;charset=utf-8");
+        response.setStatus(HttpServletResponse.SC_OK);
+        baseRequest.setHandled(true);
+        
         response.getWriter().println("CI job done");
+        System.err.flush(); // Force the terminal to show the text NOW
     }
  
     // used to start the CI server in command line
