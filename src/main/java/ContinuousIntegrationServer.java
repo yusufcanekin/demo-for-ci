@@ -26,7 +26,8 @@ public class ContinuousIntegrationServer extends AbstractHandler
         response.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);
 
-        System.out.println(target);
+        System.out.println("🔥 WEBHOOK RECEIVED 🔥 Path: " + target);
+
 
         // here you do all the continuous integration tasks
         // for example
